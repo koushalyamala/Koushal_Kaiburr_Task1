@@ -195,4 +195,16 @@ The API handles various error scenarios:
 
 Application logs are available in:
 - Console output (DEBUG level for com.example.taskmanagement)
+
 - Log file: `logs/task-management-api.log`
+
+- <img width="1920" height="1020" alt="Screenshot 2025-09-28 230707" 
+    src="https://github.com/user-attachments/assets/0f223685-4cfe-4e9d-b3b0-724a49dc4702" />
+
+    <img width="1920" height="1080" alt="Screenshot 2025-09-28 230907" src="https://github.com/user-attachments/assets/1c6bf2f9-3afd-4b06-b8bf-c7bbcd7e5ed3" />
+
+<img width="1920" height="1080" alt="Screenshot 2025-09-28 230934" src="https://github.com/user-attachments/assets/3cabb464-cfd2-498d-9f7d-541d0725f7dc" />
+
+<img width="1920" height="1080" alt="Screenshot 2025-09-28 231221" src="https://github.com/user-attachments/assets/d8b6b9e0-aa2d-4181-be9e-03457c297708" />
+
+
