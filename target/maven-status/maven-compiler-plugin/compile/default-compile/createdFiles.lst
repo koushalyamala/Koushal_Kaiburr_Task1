@@ -1,0 +1,9 @@
+com\example\taskmanagement\service\TaskService.class
+com\example\taskmanagement\service\CommandValidationService$ValidationResult.class
+com\example\taskmanagement\TaskManagementApplication.class
+com\example\taskmanagement\model\Task.class
+com\example\taskmanagement\service\CommandValidationService.class
+com\example\taskmanagement\repository\TaskRepository.class
+com\example\taskmanagement\controller\TaskController.class
+com\example\taskmanagement\model\TaskExecution.class
+com\example\taskmanagement\service\CommandExecutionService.class

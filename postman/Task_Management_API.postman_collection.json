@@ -1,0 +1,362 @@
+{
+	"info": {
+		"_postman_id": "task-management-api",
+		"name": "Task Management API",
+		"description": "Complete REST API for managing shell command tasks with MongoDB storage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"health"
+					]
+				},
+				"description": "Check if the API is running"
+			}
+		},
+		{
+			"name": "Get All Tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks"
+					]
+				},
+				"description": "Retrieve all tasks from the database"
+			}
+		},
+		{
+			"name": "Get Task by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tasks?id=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "123",
+							"description": "Task ID to retrieve"
+						}
+					]
+				},
+				"description": "Retrieve a specific task by its ID"
+			}
+		},
+		{
+			"name": "Create Task - Echo Hello",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"123\",\n    \"name\": \"Print Hello\",\n    \"owner\": \"John Smith\",\n    \"command\": \"echo Hello World!\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks"
+					]
+				},
+				"description": "Create a new task with echo command"
+			}
+		},
+		{
+			"name": "Create Task - List Directory",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"124\",\n    \"name\": \"List Current Directory\",\n    \"owner\": \"Jane Doe\",\n    \"command\": \"dir\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks"
+					]
+				},
+				"description": "Create a task to list current directory contents"
+			}
+		},
+		{
+			"name": "Create Task - Date Command",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"125\",\n    \"name\": \"Show Current Date\",\n    \"owner\": \"System Admin\",\n    \"command\": \"date /t\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks"
+					]
+				},
+				"description": "Create a task to show current date"
+			}
+		},
+		{
+			"name": "Create Task - Invalid Command (Security Test)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"999\",\n    \"name\": \"Dangerous Task\",\n    \"owner\": \"Hacker\",\n    \"command\": \"rm -rf /\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks"
+					]
+				},
+				"description": "Test security validation - this should be rejected"
+			}
+		},
+		{
+			"name": "Search Tasks by Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tasks/search?name=Hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Hello",
+							"description": "Search string to find in task names"
+						}
+					]
+				},
+				"description": "Search for tasks containing 'Hello' in their name"
+			}
+		},
+		{
+			"name": "Execute Task - Echo Hello",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tasks/123/execute",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks",
+						"123",
+						"execute"
+					]
+				},
+				"description": "Execute the echo task and capture output"
+			}
+		},
+		{
+			"name": "Execute Task - List Directory",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tasks/124/execute",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks",
+						"124",
+						"execute"
+					]
+				},
+				"description": "Execute the directory listing task"
+			}
+		},
+		{
+			"name": "Execute Task - Date Command",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tasks/125/execute",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks",
+						"125",
+						"execute"
+					]
+				},
+				"description": "Execute the date command task"
+			}
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tasks/125",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks",
+						"125"
+					]
+				},
+				"description": "Delete a task by ID"
+			}
+		},
+		{
+			"name": "Get Task After Execution",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tasks?id=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "123",
+							"description": "Get task to see execution history"
+						}
+					]
+				},
+				"description": "Get task to verify execution was recorded"
+			}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

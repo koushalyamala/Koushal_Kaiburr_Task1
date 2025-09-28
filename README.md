@@ -1,6 +1,3 @@
-# Koushal_Kaiburr_Task1
-Java backend and REST API example
-
 # Task Management API - Testing Guide
 
 This document provides examples for testing the Task Management REST API using cURL commands and Postman.
@@ -199,19 +196,3 @@ The API handles various error scenarios:
 Application logs are available in:
 - Console output (DEBUG level for com.example.taskmanagement)
 - Log file: `logs/task-management-api.log`
-
-Screenshots:
-<img width="1920" height="1020" alt="Screenshot 2025-09-28 230707" src="https://github.com/user-attachments/assets/3b9da1db-1784-4f9c-ab7c-5e649781d264" />
-
-<img width="1920" height="1080" alt="Screenshot 2025-09-28 230915" src="https://github.com/user-attachments/assets/23c46103-95fe-4484-b024-ff6e347bdb82" />
-
-<img width="1920" height="1080" alt="Screenshot 2025-09-28 230934" src="https://github.com/user-attachments/assets/bc90655d-7bc7-4778-887f-11dcebd54a99" />
-
-<img width="1920" height="1080" alt="Screenshot 2025-09-28 231027" src="https://github.com/user-attachments/assets/e4803afe-0c94-4211-a6d5-ef879a5bac1a" />
-
-<img width="1920" height="1080" alt="Screenshot 2025-09-28 231221" src="https://github.com/user-attachments/assets/1a99c117-3be2-4b5c-8245-09ce5e9645c0" />
-
-
-
-
-
